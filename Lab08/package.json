@@ -1,0 +1,26 @@
+{
+  "name": "lab07",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PieumeUlrich/CPRG_206_Webintegration.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PieumeUlrich/CPRG_206_Webintegration/issues"
+  },
+  "homepage": "https://github.com/PieumeUlrich/CPRG_206_Webintegration#readme",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1",
+    "msnodesqlv8": "^5.1.4",
+    "mssql": "^12.2.0"
+  }
+}
