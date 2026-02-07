@@ -30,6 +30,9 @@ body{
   color: var(--text);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.6;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
 
   /* ✅ Space for fixed header (desktop) */
   padding-top: 170px;
