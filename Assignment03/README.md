@@ -49,7 +49,7 @@ This project includes a **Node.js + SQL Server backend** and a **React frontend*
 ## 📁 Project Structure
 
 ### **Backend**
-
+```
 backend/
 │
 ├── server.js
@@ -70,9 +70,9 @@ backend/
     ├── bookingsController.js
     ├── clientsController.js
     └── queryController.js
-
+```
 ### **Frontend**
-
+```
 frontend/
 │
 ├── package.json
@@ -98,7 +98,7 @@ frontend/
     │    └── QueryLab.jsx
     │
     └── styles/
-
+```
 ---
 
 ## 🛠️ Installation & Setup
@@ -108,3 +108,4 @@ frontend/
 git clone [https://github.com/<your-username>/<your-repo>.git](https://github.com/PieumeUlrich/CPRG_206_Webintegration.git)
 
 `cd Assignemt03`
+```

@@ -5,7 +5,7 @@ This guide explains how to install, configure, and run the frontend for the **KU
 ---
 
 ## 1. Navigate to the frontend folder
-```bash
+
 cd frontend
 
 ## 2. Install dependencies
@@ -19,4 +19,3 @@ cd frontend
 ## 4. Frontend will run at:
 http://localhost:3000
 
-```
