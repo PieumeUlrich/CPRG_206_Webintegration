@@ -1,20 +1,22 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🎨 Frontend Setup
 
-# Run and deploy your AI Studio app
+This guide explains how to install, configure, and run the frontend for the **KUKAT Travel Agency Dashboard**.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/drive/1OsGRqW-1QvT-31y6e2NhOac4OYtPccVj
+## 1. Navigate to the frontend folder
+```bash
+cd frontend
 
-## Run Locally
+## 2. Install dependencies
+`npm install`
 
-**Prerequisites:**  Node.js
+
+##3. Start the frontend
+`npm start`
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 4. Frontend will run at:
+http://localhost:3000
+
+```
