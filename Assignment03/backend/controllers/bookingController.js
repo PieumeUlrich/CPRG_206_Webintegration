@@ -9,14 +9,14 @@ export const getBookingsByDestination = async (req, res) => {
       .request()
       .input("destId", destinationId)
       .query(`
-        SELECT 
+        SELECT
           B.BOOKINGID,
-          B.CUSTOMERID,
-          B.DESTINATIONID,
-          B.BOOKINGDATE,
-          D.DESTDESCRIPTION
+          C.FIRSTNAME + ' ' + C.LASTNAME AS CUSTOMERNAME,
+          D.DESTDESCRIPTION,
+          CONVERT(varchar(10), B.BOOKINGDATE, 23) AS BOOKINGDATE
         FROM ULRICH.BOOKING B
         JOIN ULRICH.DESTINATION D ON B.DESTINATIONID = D.DESTINATIONID
+        JOIN ULRICH.CUSTOMER C ON B.CUSTOMERID = C.CUSTOMERID
         WHERE B.DESTINATIONID = @destId
         ORDER BY B.BOOKINGDATE DESC
       `);
@@ -29,25 +29,16 @@ export const getBookingsByDestination = async (req, res) => {
 };
 
 export const getDestinations = async (req, res) => {
-    try {
-        const pool = await sql.connect(config);
-        const result = await pool.request().query(
-            `SELECT DISTINCT 
-                B.BOOKINGID, 
-                C.FIRSTNAME + ' ' + C.LASTNAME AS CUSTOMER_NAME, 
-                B.DESTINATIONID, 
-                D.DESTDESCRIPTION 
-             FROM ULRICH.BOOKING B 
-             JOIN ULRICH.DESTINATION D ON B.DESTINATIONID = D.DESTINATIONID 
-             JOIN ULRICH.CUSTOMER C ON B.CUSTOMERID = C.CUSTOMERID;`
-        );
-        res.json({data: result.recordset});
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Error fetching destinations');
-    } finally {
-        sql.close();
-    }
+  try {
+    const pool = await getConnection();
+    const result = await pool.request().query(`
+      SELECT DISTINCT DESTINATIONID, DESTDESCRIPTION
+      FROM ULRICH.DESTINATION
+    `);
+    res.json(result.recordset);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching destinations");
+  }
 };
-
 

@@ -41,8 +41,8 @@ export const getLastBookings = async (req, res) => {
   try {
     const pool = await getConnection();
     const result = await pool.request().query(`
-      SELECT TOP 5 BOOKINGID, CUSTOMERID, DESTINATIONID, BOOKINGDATE
-      FROM ULRICH.BOOKING
+      SELECT DISTINCT TOP 5 BOOKINGID, CUSTOMERID, D.DESTDESCRIPTION, CONVERT(varchar(10), B.BOOKINGDATE, 23) AS BOOKINGDATE
+      FROM ULRICH.BOOKING B JOIN ULRICH.DESTINATION D ON B.DESTINATIONID = D.DESTINATIONID
       ORDER BY BOOKINGDATE DESC
     `);
     res.json(result);
@@ -55,7 +55,7 @@ export const getLastTransactions = async (req, res) => {
   try {
     const pool = await getConnection();
     const result = await pool.request().query(`
-      SELECT TOP 5 PAYMENTID, INVOICEID, BILLEDAMOUNT, PAYMENTDATE
+      SELECT DISTINCT TOP 5 PAYMENTID, INVOICEID, BILLEDAMOUNT, CONVERT(varchar(10), PAYMENTDATE, 23) AS PAYMENTDATE
       FROM ULRICH.PAYMENT
       ORDER BY PAYMENTDATE DESC
     `);

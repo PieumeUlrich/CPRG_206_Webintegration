@@ -9,7 +9,7 @@ export default function Bookings() {
   useEffect(() => {
     fetch("http://localhost:3001/api/booking/destination")
       .then((res) => res.json())
-      .then((data) => setDestinations(data.recordset || []));
+      .then((data) => setDestinations(data || []));
   }, []);
 
   const handleSubmit = (e) => {

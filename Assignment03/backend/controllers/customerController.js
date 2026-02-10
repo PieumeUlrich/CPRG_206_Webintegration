@@ -53,7 +53,7 @@ export const getAllCustomers = async (req, res) => {
     const pool = await getConnection();
     const result = await pool.request().query(`
       SELECT CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL, HOMEPHONE, BUSINESSPHONE,
-             BIRTHDATE, ADDRESS, CITY, POSTALCODE, PROVINCE, COUNTRY
+             CONVERT(varchar(10), BIRTHDATE, 23) AS BIRTHDATE, ADDRESS, CITY, POSTALCODE, PROVINCE, COUNTRY
       FROM ULRICH.CUSTOMER
       ORDER BY CUSTOMERID DESC
     `);

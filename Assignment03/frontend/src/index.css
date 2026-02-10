@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, montserrat, sans-serif;
   background: #f3f4f6;
   color: #111827;
 }
@@ -88,7 +88,6 @@ body {
 
 /* TABLES */
 .table-wrapper {
-  margin-top: 16px;
   background: #ffffff;
   border-radius: 12px;
   padding: 16px;
@@ -153,6 +152,8 @@ select {
   border-radius: 8px;
   border: 1px solid #d1d5db;
   font-size: 0.95rem;
+  margin: 2%;
+  width: 40%;
 }
 
 button {
@@ -175,3 +176,14 @@ button:hover {
   font-weight: 600;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-info {
+  margin: 10px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
